@@ -1,0 +1,139 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="dsp_echo.cpp" />
+    <ClCompile Include="dsp_freeverb.cpp" />
+    <ClCompile Include="dsp_iir.cpp" />
+    <ClCompile Include="dsp_phaser.cpp" />
+    <ClCompile Include="dsp_wahwah.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="freeverb.cpp">
+      <Filter>DSP</Filter>
+    </ClCompile>
+    <ClCompile Include="iirfilters.cpp">
+      <Filter>DSP</Filter>
+    </ClCompile>
+    <ClCompile Include="phaser.cpp">
+      <Filter>DSP</Filter>
+    </ClCompile>
+    <ClCompile Include="wahwah.cpp">
+      <Filter>DSP</Filter>
+    </ClCompile>
+    <ClCompile Include="echo.cpp">
+      <Filter>DSP</Filter>
+    </ClCompile>
+    <ClCompile Include="dsp_soundtouch.cpp" />
+    <ClCompile Include="dsp_tremelo.cpp" />
+    <ClCompile Include="dsp_vibrato.cpp" />
+    <ClCompile Include="dmodsp.cpp" />
+    <ClCompile Include="dsp_dmo.cpp" />
+    <ClCompile Include="SoundTouch\AAFilter.cpp">
+      <Filter>DSP\SoundTouch</Filter>
+    </ClCompile>
+    <ClCompile Include="SoundTouch\BPMDetect.cpp">
+      <Filter>DSP\SoundTouch</Filter>
+    </ClCompile>
+    <ClCompile Include="SoundTouch\cpu_detect_x86.cpp">
+      <Filter>DSP\SoundTouch</Filter>
+    </ClCompile>
+    <ClCompile Include="SoundTouch\FIFOSampleBuffer.cpp">
+      <Filter>DSP\SoundTouch</Filter>
+    </ClCompile>
+    <ClCompile Include="SoundTouch\FIRFilter.cpp">
+      <Filter>DSP\SoundTouch</Filter>
+    </ClCompile>
+    <ClCompile Include="SoundTouch\InterpolateCubic.cpp">
+      <Filter>DSP\SoundTouch</Filter>
+    </ClCompile>
+    <ClCompile Include="SoundTouch\InterpolateLinear.cpp">
+      <Filter>DSP\SoundTouch</Filter>
+    </ClCompile>
+    <ClCompile Include="SoundTouch\InterpolateShannon.cpp">
+      <Filter>DSP\SoundTouch</Filter>
+    </ClCompile>
+    <ClCompile Include="SoundTouch\mmx_optimized.cpp">
+      <Filter>DSP\SoundTouch</Filter>
+    </ClCompile>
+    <ClCompile Include="SoundTouch\PeakFinder.cpp">
+      <Filter>DSP\SoundTouch</Filter>
+    </ClCompile>
+    <ClCompile Include="SoundTouch\RateTransposer.cpp">
+      <Filter>DSP\SoundTouch</Filter>
+    </ClCompile>
+    <ClCompile Include="SoundTouch\SoundTouch.cpp">
+      <Filter>DSP\SoundTouch</Filter>
+    </ClCompile>
+    <ClCompile Include="SoundTouch\sse_optimized.cpp">
+      <Filter>DSP\SoundTouch</Filter>
+    </ClCompile>
+    <ClCompile Include="SoundTouch\TDStretch.cpp">
+      <Filter>DSP\SoundTouch</Filter>
+    </ClCompile>
+    <ClCompile Include="dsp_chorus.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="resource.h" />
+    <ClInclude Include="freeverb.h">
+      <Filter>DSP</Filter>
+    </ClInclude>
+    <ClInclude Include="iirfilters.h">
+      <Filter>DSP</Filter>
+    </ClInclude>
+    <ClInclude Include="phaser.h">
+      <Filter>DSP</Filter>
+    </ClInclude>
+    <ClInclude Include="wahwah.h">
+      <Filter>DSP</Filter>
+    </ClInclude>
+    <ClInclude Include="echo.h">
+      <Filter>DSP</Filter>
+    </ClInclude>
+    <ClInclude Include="circular_buffer.h">
+      <Filter>DSP</Filter>
+    </ClInclude>
+    <ClInclude Include="dsp_guids.h" />
+    <ClInclude Include="..\foo_sample\resource.h" />
+    <ClInclude Include="dmodsp.h" />
+    <ClInclude Include="SoundTouch\AAFilter.h">
+      <Filter>DSP\SoundTouch</Filter>
+    </ClInclude>
+    <ClInclude Include="SoundTouch\cpu_detect.h">
+      <Filter>DSP\SoundTouch</Filter>
+    </ClInclude>
+    <ClInclude Include="SoundTouch\FIRFilter.h">
+      <Filter>DSP\SoundTouch</Filter>
+    </ClInclude>
+    <ClInclude Include="SoundTouch\InterpolateCubic.h">
+      <Filter>DSP\SoundTouch</Filter>
+    </ClInclude>
+    <ClInclude Include="SoundTouch\InterpolateLinear.h">
+      <Filter>DSP\SoundTouch</Filter>
+    </ClInclude>
+    <ClInclude Include="SoundTouch\InterpolateShannon.h">
+      <Filter>DSP\SoundTouch</Filter>
+    </ClInclude>
+    <ClInclude Include="SoundTouch\PeakFinder.h">
+      <Filter>DSP\SoundTouch</Filter>
+    </ClInclude>
+    <ClInclude Include="SoundTouch\RateTransposer.h">
+      <Filter>DSP\SoundTouch</Filter>
+    </ClInclude>
+    <ClInclude Include="SoundTouch\TDStretch.h">
+      <Filter>DSP\SoundTouch</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="foo_dsp_effect.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="DSP">
+      <UniqueIdentifier>{d6ef0956-645e-4ffd-bbf8-c14dd25f96a1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="DSP\SoundTouch">
+      <UniqueIdentifier>{7691cbb6-307c-48bb-a327-49fc892de188}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+</Project>

@@ -1,0 +1,107 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="foo_beatit.cpp" />
+    <ClCompile Include="minibpm\MiniBpm.cpp" />
+    <ClCompile Include="soundtouch\BPMDetect.cpp">
+      <Filter>SoundTouch</Filter>
+    </ClCompile>
+    <ClCompile Include="soundtouch\FIFOSampleBuffer.cpp">
+      <Filter>SoundTouch</Filter>
+    </ClCompile>
+    <ClCompile Include="soundtouch\PeakFinder.cpp">
+      <Filter>SoundTouch</Filter>
+    </ClCompile>
+    <ClCompile Include="fraganator\preferences.cpp">
+      <Filter>fraganator</Filter>
+    </ClCompile>
+    <ClCompile Include="fraganator\bpm_auto_analysis.cpp">
+      <Filter>fraganator</Filter>
+    </ClCompile>
+    <ClCompile Include="fraganator\bpm_fft.cpp">
+      <Filter>fraganator</Filter>
+    </ClCompile>
+    <ClCompile Include="fraganator\bpm_fft_impl_kissfft.cpp">
+      <Filter>fraganator</Filter>
+    </ClCompile>
+    <ClCompile Include="fraganator\kiss_fftr.c">
+      <Filter>fraganator</Filter>
+    </ClCompile>
+    <ClCompile Include="fraganator\kiss_fft.c">
+      <Filter>fraganator</Filter>
+    </ClCompile>
+    <ClCompile Include="bpm_manual_dialog.cpp" />
+    <ClCompile Include="fraganator\format_bpm.cpp">
+      <Filter>fraganator</Filter>
+    </ClCompile>
+    <ClCompile Include="bpm_preferences_page.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="hash\config.h" />
+    <ClInclude Include="minibpm\MiniBpm.h" />
+    <ClInclude Include="resource.h" />
+    <ClInclude Include="targetver.h" />
+    <ClInclude Include="soundtouch\BPMDetect.h">
+      <Filter>SoundTouch</Filter>
+    </ClInclude>
+    <ClInclude Include="soundtouch\FIFOSampleBuffer.h">
+      <Filter>SoundTouch</Filter>
+    </ClInclude>
+    <ClInclude Include="soundtouch\FIFOSamplePipe.h">
+      <Filter>SoundTouch</Filter>
+    </ClInclude>
+    <ClInclude Include="soundtouch\PeakFinder.h">
+      <Filter>SoundTouch</Filter>
+    </ClInclude>
+    <ClInclude Include="soundtouch\soundtouch_config.h">
+      <Filter>SoundTouch</Filter>
+    </ClInclude>
+    <ClInclude Include="soundtouch\STTypes.h">
+      <Filter>SoundTouch</Filter>
+    </ClInclude>
+    <ClInclude Include="fraganator\globals.h">
+      <Filter>fraganator</Filter>
+    </ClInclude>
+    <ClInclude Include="fraganator\guid.h">
+      <Filter>fraganator</Filter>
+    </ClInclude>
+    <ClInclude Include="fraganator\preferences.h">
+      <Filter>fraganator</Filter>
+    </ClInclude>
+    <ClInclude Include="fraganator\bpm_auto_analysis.h">
+      <Filter>fraganator</Filter>
+    </ClInclude>
+    <ClInclude Include="fraganator\bpm_fft.h">
+      <Filter>fraganator</Filter>
+    </ClInclude>
+    <ClInclude Include="fraganator\bpm_fft_impl_kissfft.h">
+      <Filter>fraganator</Filter>
+    </ClInclude>
+    <ClInclude Include="fraganator\kiss_fftr.h">
+      <Filter>fraganator</Filter>
+    </ClInclude>
+    <ClInclude Include="fraganator\kiss_fft.h">
+      <Filter>fraganator</Filter>
+    </ClInclude>
+    <ClInclude Include="fraganator\foo_bpm.h">
+      <Filter>fraganator</Filter>
+    </ClInclude>
+    <ClInclude Include="fraganator\resource.h" />
+    <ClInclude Include="bpm_manual_dialog.h" />
+    <ClInclude Include="fraganator\format_bpm.h">
+      <Filter>fraganator</Filter>
+    </ClInclude>
+    <ClInclude Include="bpm_preferences_page.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="foo_beatit.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="SoundTouch">
+      <UniqueIdentifier>{83140e73-53fa-433c-8ab1-18ce74005995}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="fraganator">
+      <UniqueIdentifier>{e78669da-03d7-4896-a197-c35c5239119d}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

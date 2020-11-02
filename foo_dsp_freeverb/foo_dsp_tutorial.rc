@@ -1,0 +1,120 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// German (Germany) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_DEU)
+#ifdef _WIN32
+LANGUAGE LANG_GERMAN, SUBLANG_GERMAN
+#pragma code_page(1252)
+#endif //_WIN32
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+#endif    // German (Germany) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+/////////////////////////////////////////////////////////////////////////////
+// English (Australia) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENA)
+#ifdef _WIN32
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_AUS
+#pragma code_page(1252)
+#endif //_WIN32
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_FREEDIALOG DIALOGEX 0, 0, 215, 134
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Filter Options"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    CONTROL         "",IDC_WET,"msctls_trackbar32",TBS_BOTH | TBS_NOTICKS | WS_TABSTOP,4,10,156,16
+    CONTROL         "",IDC_DRY,"msctls_trackbar32",TBS_BOTH | TBS_NOTICKS | WS_TABSTOP,4,34,156,16
+    CONTROL         "",IDC_DAMP,"msctls_trackbar32",TBS_BOTH | TBS_NOTICKS | WS_TABSTOP,4,60,156,16
+    CONTROL         "",IDC_SIZE,"msctls_trackbar32",TBS_BOTH | TBS_NOTICKS | WS_TABSTOP,4,85,156,16
+    CONTROL         "",IDC_WIDTH,"msctls_trackbar32",TBS_BOTH | TBS_NOTICKS | WS_TABSTOP,4,109,156,16
+    LTEXT           "Wet",IDC_STATIC,80,2,17,8
+    LTEXT           "Dry",IDC_STATIC,80,26,12,8
+    LTEXT           "Damping",IDC_STATIC,80,50,32,8
+    LTEXT           "Room Size",IDC_STATIC,80,78,54,8
+    LTEXT           "Room Width",IDC_STATIC,80,101,54,8
+    EDITTEXT        IDC_WETVALUE,160,13,44,12,ES_AUTOHSCROLL | WS_DISABLED
+    EDITTEXT        IDC_DRYVALUE,160,37,44,12,ES_AUTOHSCROLL | WS_DISABLED
+    EDITTEXT        IDC_DAMPVALUE,160,61,44,12,ES_AUTOHSCROLL | WS_DISABLED
+    EDITTEXT        IDC_SIZEVALUE,160,85,44,12,ES_AUTOHSCROLL | WS_DISABLED
+    EDITTEXT        IDC_WIDTHVALUE,160,109,44,12,ES_AUTOHSCROLL | WS_DISABLED
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO 
+BEGIN
+    IDD_FREEDIALOG, DIALOG
+    BEGIN
+        RIGHTMARGIN, 213
+        BOTTOMMARGIN, 133
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+#endif    // English (Australia) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

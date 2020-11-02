@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="foo_input_v2m.cpp" />
+    <ClCompile Include="libv2\synth_core.cpp" />
+    <ClCompile Include="libv2\v2mplayer.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="libv2\synth.h" />
+    <ClInclude Include="libv2\v2mplayer.h" />
+  </ItemGroup>
+</Project>
