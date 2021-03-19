@@ -3,8 +3,8 @@
 #include "../../libPPUI/win32_op.h" // WIN32_OP()
 #include "../helpers/BumpableElem.h"
 #include "resource.h"
-#include "SoundTouch/SoundTouch.h"
-#include "rubberband/rubberband/RubberBandStretcher.h"
+#include "../../../3rdparty-deps/SoundTouch/SoundTouch.h"
+#include "../../../3rdparty-deps/rubberband/rubberband/RubberBandStretcher.h"
 #include "circular_buffer.h"
 #include "dsp_guids.h"
 
@@ -240,7 +240,8 @@ class dsp_tempo : public dsp_impl_base
 	int m_rate, m_ch, m_ch_mask;
 	int pitch_shifter;
 	float tempo_amount;
-	bool st_enabled;	
+	bool st_enabled;
+	pfc::array_t<audio_sample>buf;
 private:
 	void flushchunks()
 	{
@@ -282,21 +283,20 @@ private:
 
 		if (p_soundtouch)
 		{
-			size_t out_samples_gen = p_soundtouch->numSamples();
-			if (out_samples_gen)
-			{
-				auto buffer = std::make_unique<float[]>(out_samples_gen * m_ch);
-				while (out_samples_gen > 0)
+				size_t out_samples_gen = p_soundtouch->numSamples();
+				if (out_samples_gen)
 				{
-					out_samples_gen = p_soundtouch->receiveSamples(buffer.get(), out_samples_gen);
-					if (out_samples_gen != 0)
+					buf.grow_size(out_samples_gen * m_ch);
+					while (out_samples_gen > 0)
 					{
-						audio_chunk* chunk = insert_chunk(out_samples_gen * m_ch);
-						chunk->set_data(buffer.get(), out_samples_gen, m_ch, m_rate, m_ch_mask);
+						out_samples_gen = p_soundtouch->receiveSamples(buf.get_ptr(), out_samples_gen);
+						if (out_samples_gen != 0)
+						{
+							audio_chunk* chunk = insert_chunk(out_samples_gen * m_ch);
+							chunk->set_data(buf.get_ptr(), out_samples_gen, m_ch, m_rate, m_ch_mask);
+						}
 					}
 				}
-			}
-			
 		}
 
 	}
@@ -521,7 +521,6 @@ class dsp_rate : public dsp_impl_base
 	float pitch_amount;
 	pfc::array_t<audio_sample>buffer;
 	bool st_enabled;
-
 private:
 	void flushchunks()
 	{
