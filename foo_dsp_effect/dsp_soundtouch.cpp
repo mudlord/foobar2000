@@ -86,6 +86,9 @@ public:
 		p_soundtouch = 0;
 		st_enabled = false;
 		parse_preset(pitch_amount, st_enabled, in);
+
+
+		
 	}
 	~dsp_pitch() {
 		if (p_soundtouch)
@@ -125,12 +128,32 @@ public:
 		t_size sample_count = chunk->get_sample_count();
 		audio_sample * src = chunk->get_data();
 
+
 		if (pitch_amount == 0.0)
 		{
-			st_enabled = false;
-			return true;
+			get_cur_file(current_track);
+			if (current_track != NULL) {
+				service_ptr_t<metadb_info_container> out;
+				if (current_track->get_info_ref(out))
+				{
+					const file_info& file_inf = out->info();
+					if (file_inf.meta_exists("pitch_amt"))
+					{
+						const char* meta = file_inf.meta_get("pitch_amt", 0);
+						double pitch2 = pfc::string_to_float(meta, strlen("pitch_amt"));
+						pitch_amount = pitch2;
+					}
+					else
+					{
+						st_enabled = false;
+						return true;
+					}
+				}
+
+			}
 		}
-		if (!st_enabled) st_enabled = true;
+		if (!st_enabled)
+		st_enabled = true;
 
 
 		if (chunk->get_srate() != m_rate || chunk->get_channels() != m_ch || chunk->get_channel_config() != m_ch_mask)
@@ -156,21 +179,7 @@ public:
 				p_soundtouch->setSetting(SETTING_USE_QUICKSEEK, true);
 				p_soundtouch->setSetting(SETTING_USE_AA_FILTER, useaafilter);
 			}
-			get_cur_file(current_track);
-			if (current_track != NULL) {
-				service_ptr_t<metadb_info_container> out;
-				if (current_track->get_info_ref(out))
-				{
-					const file_info& file_inf = out->info();
-					if (file_inf.meta_exists("pitch_amt"))
-					{
-						const char* meta = file_inf.meta_get("pitch_amt", 0);
-						double pitch2 = pfc::string_to_float(meta, strlen("pitch_amt"));
-						p_soundtouch->setPitchSemiTones(pitch2);
-					}
-				}
-				
-			}
+			
 
 
 		}
