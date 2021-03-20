@@ -256,6 +256,8 @@ class dsp_tempo : public dsp_impl_base
 	float tempo_amount;
 	bool st_enabled;
 	pfc::array_t<audio_sample>buf;
+	metadb_handle_ptr current_track;
+	bool gettrackdata;
 private:
 	void flushchunks()
 	{
@@ -323,13 +325,14 @@ public:
 		st_enabled = false;
 		pitch_shifter = 0;
 		parse_preset(tempo_amount, pitch_shifter, st_enabled, in);
+		gettrackdata = false;
 	}
 	~dsp_tempo() {
 		if (rubber)
 		{
 			delete rubber;
 			rubber = 0;
-
+			gettrackdata = false;
 		}
 
 		if (p_soundtouch)
@@ -376,6 +379,26 @@ public:
 	virtual bool on_chunk(audio_chunk * chunk, abort_callback & p_abort) {
 		t_size sample_count = chunk->get_sample_count();
 		audio_sample * src = chunk->get_data();
+
+		if (!gettrackdata)
+		{
+			get_cur_file(current_track);
+			if (current_track != NULL) {
+				service_ptr_t<metadb_info_container> out;
+				if (current_track->get_info_ref(out))
+				{
+					const file_info& file_inf = out->info();
+					if (file_inf.meta_exists("tempo_amt"))
+					{
+						const char* meta = file_inf.meta_get("tempo_amt", 0);
+						double pitch2 = pfc::string_to_float(meta, strlen("tempo_amt"));
+						tempo_amount = pitch2;
+					}
+
+				}
+			}
+			gettrackdata = true;
+		}
 
 		if (tempo_amount == 0)
 		{
@@ -535,6 +558,8 @@ class dsp_rate : public dsp_impl_base
 	float pitch_amount;
 	pfc::array_t<audio_sample>buffer;
 	bool st_enabled;
+	metadb_handle_ptr current_track;
+	bool gettrackdata;
 private:
 	void flushchunks()
 	{
@@ -564,6 +589,7 @@ public:
 		p_soundtouch = 0;
 		st_enabled = false;
 		parse_preset(pitch_amount, st_enabled, in);
+		gettrackdata = false;
 
 	}
 	~dsp_rate() {
@@ -572,6 +598,7 @@ public:
 			p_soundtouch->clear();
 			delete p_soundtouch;
 			p_soundtouch = 0;
+			gettrackdata = false;
 		}
 
 	}
@@ -611,6 +638,25 @@ public:
 	// and channel configuration.
 	virtual bool on_chunk(audio_chunk * chunk, abort_callback & p_abort) {
 
+		if (!gettrackdata)
+		{
+			get_cur_file(current_track);
+			if (current_track != NULL) {
+				service_ptr_t<metadb_info_container> out;
+				if (current_track->get_info_ref(out))
+				{
+					const file_info& file_inf = out->info();
+					if (file_inf.meta_exists("pbrate_amt"))
+					{
+						const char* meta = file_inf.meta_get("pbrate_amt", 0);
+						double pitch2 = pfc::string_to_float(meta, strlen("pbrate_amt"));
+						pitch_amount = pitch2;
+					}
+
+				}
+			}
+			gettrackdata = true;
+		}
 
 		if (pitch_amount == 0.0)
 		{
