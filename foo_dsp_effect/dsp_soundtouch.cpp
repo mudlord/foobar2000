@@ -59,6 +59,7 @@ class dsp_pitch : public dsp_impl_base
 	bool st_enabled;
 	metadb_handle_ptr current_track;
 	pfc::array_t<audio_sample>buf;
+	bool gettrackdata;
 private:
 	void flushchunks()
 	{
@@ -86,6 +87,7 @@ public:
 		p_soundtouch = 0;
 		st_enabled = false;
 		parse_preset(pitch_amount, st_enabled, in);
+		gettrackdata = false;
 
 
 		
@@ -96,6 +98,7 @@ public:
 			p_soundtouch->clear();
 			delete p_soundtouch;
 			p_soundtouch = 0;
+			gettrackdata = false;
 		}
 	}
 
@@ -128,8 +131,7 @@ public:
 		t_size sample_count = chunk->get_sample_count();
 		audio_sample * src = chunk->get_data();
 
-
-		if (pitch_amount == 0.0)
+		if (!gettrackdata)
 		{
 			get_cur_file(current_track);
 			if (current_track != NULL) {
@@ -143,14 +145,17 @@ public:
 						double pitch2 = pfc::string_to_float(meta, strlen("pitch_amt"));
 						pitch_amount = pitch2;
 					}
-					else
-					{
-						st_enabled = false;
-						return true;
-					}
+					
 				}
-
 			}
+			gettrackdata = true;
+		}
+		
+
+		if (pitch_amount == 0.0)
+		{
+			st_enabled = false;
+			return true;
 		}
 		if (!st_enabled)
 		st_enabled = true;

@@ -1,7 +1,7 @@
 #include "../SDK/foobar2000.h"
 #include "../../../3rdparty-deps/SoundTouch/SoundTouch.h"
 #include "dsp_guids.h"
-#define MYVERSION "0.45"
+#define MYVERSION "0.46"
 
 static pfc::string_formatter g_get_component_about()
 {
